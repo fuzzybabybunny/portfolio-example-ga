@@ -1,0 +1,3 @@
+Template.playground.rendered = function(){
+
+};

@@ -14,7 +14,7 @@ body {
 }
 
 .text-primary {
-    color: #fed136;
+    color: #E8460C;
 }
 
 p {
@@ -35,7 +35,7 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: #E8460C;
 }
 
 a:hover,
@@ -69,12 +69,12 @@ h6 {
 }
 
 .btn-primary {
-    border-color: #fed136;
+    border-color: #E8460C;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #fff;
-    background-color: #fed136;
+    background-color: #E8460C;
 }
 
 .btn-primary:hover,
@@ -108,25 +108,25 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #fed136;
-    background-color: #fed136;
+    border-color: #E8460C;
+    background-color: #E8460C;
 }
 
 .btn-primary .badge {
-    color: #fed136;
+    color: #E8460C;
     background-color: #fff;
 }
 
 .btn-xl {
     padding: 20px 40px;
-    border-color: #fed136;
+    border-color: #E8460C;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    background-color: #fed136;
+    background-color: #E8460C;
 }
 
 .btn-xl:hover,
@@ -160,12 +160,12 @@ fieldset[disabled] .btn-xl:active,
 .btn-xl.disabled.active,
 .btn-xl[disabled].active,
 fieldset[disabled] .btn-xl.active {
-    border-color: #fed136;
-    background-color: #fed136;
+    border-color: #E8460C;
+    background-color: #E8460C;
 }
 
 .btn-xl .badge {
-    color: #fed136;
+    color: #E8460C;
     background-color: #fff;
 }
 
@@ -175,15 +175,20 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-brand {
-    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #fed136;
+
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #FF0000;
+
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active {
-    color: #fec503;
+    color: #FF0000;;
 }
 
 .navbar-default .navbar-collapse {
@@ -191,8 +196,8 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #fed136;
-    background-color: #fed136;
+    border-color: #E8460C;
+    background-color: #E8460C;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -201,7 +206,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #fed136;
+    background-color: #E8460C;
 }
 
 .navbar-default .nav li a {
@@ -209,19 +214,19 @@ fieldset[disabled] .btn-xl.active {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #fff;
+    color: #FF0000;
 }
 
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
-    color: #fed136;
+    color: #E8460C;
 }
 
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
     color: #fff;
-    background-color: #fed136;
+    background-color: #E8460C;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
@@ -261,12 +266,25 @@ fieldset[disabled] .btn-xl.active {
     }
 }
 
-header {
+header#index-header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
     background-image: url(../img/header-bg.jpg);
     background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+header#playground-header {
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url(../img/header-pg.jpg);
+    background-position: top center;
     background-repeat: none;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -285,6 +303,7 @@ header .intro-text .intro-lead-in {
     font-size: 22px;
     font-style: italic;
     line-height: 22px;
+    color: #FF0000;
 }
 
 header .intro-text .intro-heading {
@@ -294,6 +313,7 @@ header .intro-text .intro-heading {
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
+    color: #FF0000;
 }
 
 @media(min-width:768px) {
@@ -308,6 +328,7 @@ header .intro-text .intro-heading {
         font-size: 40px;
         font-style: italic;
         line-height: 40px;
+        color: #FF0000;
     }
 
     header .intro-text .intro-heading {
@@ -317,6 +338,7 @@ header .intro-text .intro-heading {
         font-size: 75px;
         font-weight: 700;
         line-height: 75px;
+        color: #FF0000;
     }
 }
 
@@ -324,13 +346,13 @@ section {
     padding: 100px 0;
 }
 
-section h2.section-heading {
+section h1.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 40px;
 }
 
-section h3.section-subheading {
+section h2.section-subheading {
     margin-bottom: 75px;
     text-transform: none;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -427,6 +449,83 @@ section h3.section-subheading {
     }
 }
 
+#playground .playground-item {
+    right: 0;
+    margin: 0 0 15px;
+}
+
+#playground .playground-item .playground-link {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#playground .playground-item .playground-link .playground-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba(254,209,54,.9);
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+}
+
+#playground .playground-item .playground-link .playground-hover:hover {
+    opacity: 1;
+}
+
+#playground .playground-item .playground-link .playground-hover .playground-hover-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+#playground .playground-item .playground-link .playground-hover .playground-hover-content i {
+    margin-top: -12px;
+}
+
+#playground .playground-item .playground-link .playground-hover .playground-hover-content h3,
+#playground .playground-item .playground-link .playground-hover .playground-hover-content h4 {
+    margin: 0;
+}
+
+#playground .playground-item .playground-caption {
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 400px;
+    text-align: center;
+    background-color: #fff;
+}
+
+#playground .playground-item .playground-caption h4 {
+    margin: 0;
+    text-transform: none;
+}
+
+#playground .playground-item .playground-caption p {
+    margin: 0;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+#playground * {
+    z-index: 2;
+}
+
+@media(min-width:767px) {
+    #playground .playground-item {
+        margin: 0 0 30px;
+    }
+}
+
 .timeline {
     position: relative;
     padding: 0;
@@ -493,7 +592,7 @@ section h3.section-subheading {
     border-radius: 100%;
     text-align: center;
     color: #fff;
-    background-color: #fed136;
+    background-color: #E8460C;
 }
 
 .timeline>li .timeline-image h4 {
@@ -653,7 +752,7 @@ aside.clients img {
 
 section#contact {
     background-color: #222;
-    background-image: url(../img/map-image.png);
+    background-image: url(../img/sunset_at_derawan_island.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -680,7 +779,7 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-    border-color: #fed136;
+    border-color: #E8460C;
     box-shadow: none;
 }
 
@@ -758,7 +857,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-    background-color: #fed136;
+    background-color: #E8460C;
 }
 
 .btn:focus,
@@ -841,12 +940,12 @@ ul.social-buttons li a:active {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
+    background: #E8460C;
 }
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
+    background: #E8460C;
 }
 
 img::selection {
@@ -858,5 +957,5 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: #fed136;
+    webkit-tap-highlight-color: #E8460C;
 }

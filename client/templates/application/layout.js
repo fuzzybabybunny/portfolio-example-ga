@@ -15,5 +15,5 @@ Template.layout.rendered = function(){
 	';
 
 	$('body').append(scripts);
-	
+	console.log("layout rendered");
 };
