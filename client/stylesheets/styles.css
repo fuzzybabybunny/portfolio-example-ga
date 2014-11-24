@@ -1,0 +1,16 @@
+h4.panel-title {
+	padding-top:7px;
+}
+
+.menu-item-title {
+	padding: 5px 0px;
+}
+
+.menu-item-price {
+	float: right;
+	font-weight: 400;
+}
+
+.menu-item-photo {
+	width: 100%;
+}
