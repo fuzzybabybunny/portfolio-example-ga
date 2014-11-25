@@ -8,8 +8,16 @@
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
+
+        var removeSlash = function(string){
+        	return string.replace("/","");
+				};
+
+				var path = removeSlash($anchor.attr('href'));
+        console.log(path);
+
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
+            scrollTop: $(path).offset().top
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
