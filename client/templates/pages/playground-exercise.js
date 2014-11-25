@@ -22,6 +22,14 @@ Template.playgroundExercise.rendered = function(){
 		};
 		console.log(totalPrice);
 		$('#total-price').html('$' + totalPrice + '.00');
+
+		if(totalPrice > 0){
+			console.log("enable");
+			$('#checkout-button').prop('disabled', false);
+		} else if (totalPrice == 0){
+			$('#checkout-button').prop('disabled', true);
+		}
+
 		return totalPrice;
 	};
 
