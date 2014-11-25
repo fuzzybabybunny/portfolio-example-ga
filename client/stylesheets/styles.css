@@ -14,3 +14,7 @@ h4.panel-title {
 .menu-item-photo {
 	width: 100%;
 }
+
+#checkout-button {
+	margin-top: 20px;
+}
