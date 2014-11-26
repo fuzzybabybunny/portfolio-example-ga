@@ -33,21 +33,21 @@ Template.playgroundExercise.rendered = function(){
 		return totalPrice;
 	};
 
-	$('input[name="item1"]').keyup(function(){
+	$('input[name="item1"]').change(function(){
 		var qty = $('input[name="item1"]').val();
 		order[0].qty = parseInt(qty) || 0;
 		returnTotal(order);
 		console.log(order);
 	});
 
-	$('input[name="item2"]').keyup(function(){
+	$('input[name="item2"]').change(function(){
 		var qty = $('input[name="item2"]').val();
 		order[1].qty = parseInt(qty) || 0;
 		returnTotal(order);
 		console.log(order);
 	});
 
-	$('input[name="item3"]').keyup(function(){
+	$('input[name="item3"]').change(function(){
 		var qty = $('input[name="item3"]').val();
 		order[2].qty = parseInt(qty) || 0;
 		returnTotal(order);
