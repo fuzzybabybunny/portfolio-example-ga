@@ -18,3 +18,8 @@ h4.panel-title {
 #checkout-button {
 	margin-top: 20px;
 }
+
+div#total-price {
+	font-size: 20px;
+	font-weight: 900;
+}
