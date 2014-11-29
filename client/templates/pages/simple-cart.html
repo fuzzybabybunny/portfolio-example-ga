@@ -1,59 +1,26 @@
 <template name="simpleCart">
 
-	<section id="items-list" class="container">
-		<div class="row">
-			<div class="cart-title col-xs-6 col-xs-offset-3">
-				<h1>
-					Simple Shopping Cart
-				</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="item-name col-xs-6">
-				Salmon
-			</div>
-			<div class="item-price col-xs-3">
-				$60.00
-			</div>
-			<div class="item-qty col-xs-3">
-				<label for="item-qty">QTY</label>
-				<input name="item-qty">
-			</div>
-		</div>
-		<div class="row">
-			<div class="item-name col-xs-6">
-				Tuna
-			</div>
-			<div class="item-price col-xs-3">
-				$50.00
-			</div>
-			<div class="item-qty col-xs-3">
-				<label for="item-qty">QTY</label>
-				<input name="item-qty">
-			</div>
-		</div>
-		<div class="row">
-			<div class="item-name col-xs-6">
-				Carp
-			</div>
-			<div class="item-price col-xs-3">
-				$40.00
-			</div>
-			<div class="item-qty col-xs-3">
-				<label for="item-qty">QTY</label>
-				<input name="item-qty">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-4 col-xs-offset-4">
-				<h1 class="total-price-label">
-					Total Price:
-				</h1>
-				<div id="total-price">
-					$--.--
-				</div>
-			</div>
-		</div>
-	</section>
+  <section id="items-list" class="container">
+    <div class="row cart-title-row">
+      <div class="cart-title col-xs-6 col-xs-offset-3">
+        <h1>
+          Simple Shopping Cart
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+<!--         <button id="calc-final-price-button" type="button" class="btn btn-success">
+          Calculate Final Price
+        </button> -->
+        <h1 class="total-price-label">
+          Total Price:
+        </h1>
+        <div id="total-price">
+          $--.--
+        </div>
+      </div>
+    </div>
+  </section>
 
 </template>

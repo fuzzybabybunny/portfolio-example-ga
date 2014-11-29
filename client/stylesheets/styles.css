@@ -23,3 +23,7 @@ div#total-price {
 	font-size: 20px;
 	font-weight: 900;
 }
+
+#calc-prices-button {
+	margin-top: 50px;
+}
