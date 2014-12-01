@@ -27,3 +27,7 @@ div#total-price {
 #calc-prices-button {
 	margin-top: 50px;
 }
+
+.movie-title {
+	text-decoration: underline;
+}

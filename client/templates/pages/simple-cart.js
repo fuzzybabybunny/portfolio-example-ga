@@ -4,8 +4,8 @@ Template.simpleCart.rendered = function(){
 
 	var itemsList = [
 		{
-			name: "Salmon",
-			price: 8800,
+			name: "Salmon Sashime",
+			price: 10000,
 			desc: "lorem ipsum",
 			sku: "DFS723"
 		},{
