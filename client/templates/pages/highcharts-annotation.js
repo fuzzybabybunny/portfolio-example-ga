@@ -141,6 +141,16 @@ Template.highchartsAnnotation.rendered = function() {
 				            }
 				        },
 
+				        plotOptions: {
+				        	flags: {
+						        style: {
+											fontSize: '20px',
+											fontWeight: 'bold',
+											textAlign: 'center'
+										},
+				        	},
+				        },
+
 				        series: [{
 				            name: 'USD to EUR',
 				            data: data,

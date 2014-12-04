@@ -22,7 +22,7 @@ Highcharts.theme = {
 			]
 		},
 		style: {
-			fontFamily: "'Unica One', sans-serif"
+			fontFamily: "Signika, serif"
 		},
 		plotBorderColor: '#606063'
 	},
