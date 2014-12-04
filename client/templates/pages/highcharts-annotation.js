@@ -123,6 +123,10 @@ Template.highchartsAnnotation.rendered = function() {
 				    // Create the chart
 				    $('#chart').highcharts('StockChart', {
 
+				    		chart: {
+				    			height: 500
+				    		},
+
 				        rangeSelector: {
 				            selected: 1
 				        },

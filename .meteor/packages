@@ -9,4 +9,5 @@ insecure
 iron:router
 mizzao:bootstrap-3
 urigo:angular
+sacha:spin
 

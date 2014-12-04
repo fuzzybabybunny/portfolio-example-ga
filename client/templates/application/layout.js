@@ -12,6 +12,7 @@ Template.layout.rendered = function(){
   <script src="/js/agency.js"></script>\
   <script src="/js/highstocks/highstock.js"></script>\
   <script src="/js/jquery-serialize-object.js"></script>\
+  <script src="/js/highstocks/themes/dark-unica.js"></script>\
 	';
 
 	$('body').append(scripts);
