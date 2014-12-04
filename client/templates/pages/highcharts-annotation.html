@@ -1,0 +1,65 @@
+<template name="highchartsAnnotation">
+
+  <section id="items-list" class="container">
+    <div class="row cart-title-row">
+      <div class="cart-title col-xs-6 col-xs-offset-3">
+        <h1>
+          Highcharts Annotation
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div id="chart" class="col-xs-10 col-xs-offset-2">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <form id="annotation-form" class="form-horizontal">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Annotation Submitter</legend>
+
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="title">Annotation Title</label>
+              <div class="controls">
+                <input id="title" name="title" type="text" placeholder="" class="input-xlarge">
+
+              </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="control-group">
+              <label class="control-label" for="text">Annotation Content</label>
+              <div class="controls">
+                <textarea id="text" name="text"></textarea>
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="x">Annotation Date</label>
+              <div class="controls">
+                <input id="x" name="x" type="date" placeholder="" class="input-xlarge">
+
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="date">Annotation Date</label>
+              <div class="controls">
+                <button id="submit" name="submit" type="submit" placeholder="" class="btn btn-primary">Submit Annotation</button>
+
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</template>
