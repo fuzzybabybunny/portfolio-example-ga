@@ -1,6 +1,6 @@
 <template name="highchartsAnnotation">
 
-  <section id="items-list" class="container-fluid">
+  <section id="items-list" class="container">
     <div class="row cart-title-row">
       <div class="cart-title col-xs-6 col-xs-offset-3">
         <h1>
@@ -14,52 +14,80 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
-        <form id="annotation-form" class="form-horizontal">
-          <fieldset>
+      <div class="col-xs-12">
+        <legend>Annotation Submitter</legend>
+        <div class="col-md-6">
+          <h1>Submit New Annotation</h1>
+          <form id="annotation-form" class="form-responsive">
+            <fieldset>
+              <!-- Text input-->
+              <div class="form-group">
+                <label for="title">Annotation Title</label>
+                <div class="controls">
+                  <input name="title" type="text" placeholder="" class="form-control input-xlarge">
 
-            <!-- Form Name -->
-            <legend>Annotation Submitter</legend>
-
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="title">Annotation Title</label>
-              <div class="controls">
-                <input id="title" name="title" type="text" placeholder="" class="input-xlarge">
-
+                </div>
               </div>
-            </div>
 
-            <!-- Textarea -->
-            <div class="control-group">
-              <label class="control-label" for="text">Annotation Content</label>
-              <div class="controls">
-                <textarea id="text" name="text"></textarea>
+              <!-- Textarea -->
+              <div class="form-group">
+                <label for="text">Annotation Content</label>
+                <div class="controls">
+                  <textarea class="form-control" name="text"></textarea>
+                </div>
               </div>
-            </div>
 
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="x">Annotation Date</label>
-              <div class="controls">
-                <input id="x" name="x" type="date" placeholder="" class="input-xlarge">
-
+              <!-- Text input-->
+              <div class="form-group">
+                <label for="x">Annotation Date</label>
+                <div class="controls">
+                  <input name="x" type="date" placeholder="" class="input-xlarge form-control">
+                </div>
               </div>
-            </div>
 
-            <!-- Button -->
-            <div class="control-group">
-              <label class="control-label" for="date">Annotation Date</label>
-              <div class="controls">
-                <button id="submit" name="submit" type="submit" placeholder="" class="btn btn-primary">Submit Annotation</button>
-
+              <!-- Button -->
+              <div class="form-group">
+                <div class="controls">
+                  <button id="submit" name="submit" type="submit" placeholder="" class="btn btn-primary">Submit Annotation</button>
+                </div>
               </div>
-            </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h1>My Annotations</h1>
+          <table class="table">
+            <thead>
+              <tr class="">
+                <th colspan="2">Actions</th>
+                <th colspan="1">Title</th>
+                <th colspan="1">Date</th>
+              </tr>
+            </thead>
+            <tbody id="annotations-list">
 
-          </fieldset>
-        </form>
+            </tbody>
+          </table>
+          <ul id="annotations-list" class="list-unstyled">
+          </ul>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="edit-annotation-modal" tabindex="-1" role="dialog" aria-labelledby="edit-annotation-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="edit-annotation-modal-label">Edit Annotation</h4>
+        </div>
+        <div class="modal-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 </template>

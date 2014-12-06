@@ -31,3 +31,60 @@ div#total-price {
 .movie-title {
 	text-decoration: underline;
 }
+
+legend {
+	text-align: center;
+}
+
+.annotation-item {
+	margin: 5px 0px;
+}
+
+.btn-danger {
+    border-color: #d43f3a;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open .dropdown-toggle.btn-danger {
+    border-color: #ac2925;
+    color: #fff;
+    background-color: #c9302c;
+}
+
+.btn-danger:active,
+.btn-danger.active,
+.open .dropdown-toggle.btn-danger {
+    background-image: none;
+}
+
+.btn-danger.disabled,
+.btn-danger[disabled],
+fieldset[disabled] .btn-danger,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled:active,
+.btn-danger[disabled]:active,
+fieldset[disabled] .btn-danger:active,
+.btn-danger.disabled.active,
+.btn-danger[disabled].active,
+fieldset[disabled] .btn-danger.active {
+    border-color: #d43f3a;
+    background-color: #d9534f;
+}
+
+.btn-danger .badge {
+    color: #d9534f;
+    background-color: #fff;
+}
