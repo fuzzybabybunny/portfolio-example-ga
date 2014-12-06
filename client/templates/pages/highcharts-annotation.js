@@ -1,8 +1,15 @@
 Template.highchartsAnnotation.rendered = function() {
 
+
+
+
+
+$(document).ready(function(){
+
 // FILE VARIABLES
 
-	var annotationsArray = [];
+	// Created when createAnnotationsTable() fetches all of my annotations from the server
+	var myAnnotationsArray = [];
 
 // FUNCTIONS
 
@@ -81,7 +88,7 @@ Template.highchartsAnnotation.rendered = function() {
 		  type: 'GET',
 		  url: 'http://ga-wdi-api.meteor.com/api/posts/search/victor',
 		  success: function(response){
-		  	annotationsArray = response;
+		  	myAnnotationsArray = response;
 		  	console.log(response);
 		  	for(index in response){
 		  		var html = '\
@@ -115,16 +122,21 @@ Template.highchartsAnnotation.rendered = function() {
 
 	};
 
-	var submitAnnotation = function(){
+	var returnFormContents = function(formId){
 
-		// e.preventDefault();
-		var formContents = $('form#annotation-form').serializeObject();
-		var formSubmission = {};
-		formSubmission = formContents;
-		console.log("formContents: ", formContents);
-		formSubmission.x = new Date(formSubmission.x).getTime();
-		formSubmission.user = "victor";
-		console.log("formSubmission: ", formSubmission);
+		var formContents = $('form#' + formId).serializeObject();
+		return formContents;
+
+	};
+
+	var submitAnnotation = function(data){
+
+		var submission = {};
+		submission = data;
+		console.log("submission: ", submission);
+		submission.x = new Date(data.x).getTime();
+		submission.user = "victor";
+		console.log("submission: ", submission);
 
 		$.ajax({
 		  type: 'POST',
@@ -133,7 +145,7 @@ Template.highchartsAnnotation.rendered = function() {
 		  	console.log(response);
 		  	location.reload(true);
 		  },
-		  data: formSubmission,
+		  data: submission,
 		  dataType: 'JSON'
 		});
 
@@ -155,7 +167,7 @@ Template.highchartsAnnotation.rendered = function() {
 
 	};
 
-	var displayUpdateModal = function(id){
+	var displayUpdateModal = function(id, annotationsArray){
 
 		var annotationId = id;
 		for(index in annotationsArray){
@@ -169,11 +181,10 @@ Template.highchartsAnnotation.rendered = function() {
 				};
 				
 				var html = '\
-        <form id="edit-annotation-form" class="form-responsive">\
+        <form data-id="' + annotation._id + '" id="update-annotation-form" class="form-responsive">\
           <fieldset>\
             <!-- Text input-->\
             <div class="form-group">\
-            	<input name="_id" type="hidden" value="' + annotation._id + '">\
               <label for="title">Annotation Title</label>\
               <div class="controls">\
                 <input name="title" type="text" placeholder="" class="form-control input-xlarge" value="' + annotation.title + '">\
@@ -196,14 +207,14 @@ Template.highchartsAnnotation.rendered = function() {
             <!-- Button -->\
             <div class="form-group">\
               <div class="controls">\
-                <button id="update-annotation-button" name="submit" type="submit" placeholder="" class="btn btn-primary">Submit Annotation</button>\
+                <button id="update-annotation-button" name="submit" type="submit" placeholder="" class="btn btn-primary">Edit Annotation</button>\
               </div>\
             </div>\
           </fieldset>\
         </form>';
         
         $('.modal-body').append(html);
-				$('#edit-annotation-modal').modal('show')
+				$('#update-annotation-modal').modal('show');
 
 				break;
 			};
@@ -211,35 +222,32 @@ Template.highchartsAnnotation.rendered = function() {
 
 	};
 
-	var updateAnnotation = function(){
+	var updateAnnotation = function(id, data){
 
-		// e.preventDefault();
-		var formContents = $('form#edit-annotation-form').serializeObject();
-		var formSubmission = {};
-		formSubmission = {
-			title: formContents.title,
-			text: formContents.text,
+		console.log(id);
+
+		var submission = {
+			title: data.title,
+			text: data.text,
 			dateModified: new Date(),
-			x: formContents.x
+			x: new Date(data.x).getTime(),
+			user: 'victor'
 		};
-		console.log("formContents: ", formContents);
-		formSubmission.x = new Date(formSubmission.x).getTime();
-		formSubmission.user = "victor";
-		console.log("formSubmission: ", formSubmission);
+		console.log("data: ", data);
+		console.log("submission: ", submission);
 
 		$.ajax({
 		  type: 'PUT',
-		  url: 'http://ga-wdi-api.meteor.com/api/posts/' + formContents._id,
+		  url: 'http://ga-wdi-api.meteor.com/api/posts/' + id,
 		  success: function(response){
 		  	console.log(response);
-		  	
 		  	location.reload(true);
+		  	debugger
 		  },
 		  error: function(response){
 		  	console.log(response);
-		  	
 		  },
-		  data: formSubmission,
+		  data: submission,
 		  dataType: 'JSON'
 		});
 
@@ -247,33 +255,55 @@ Template.highchartsAnnotation.rendered = function() {
 
 // EVENTS
 
-	$('form#annotation-form').submit(function(e) {
-		e.preventDefault();
-		submitAnnotation();
+	// Submitting a new annotation
+	$('form#new-annotation-form').submit(function(e) {
+		console.log(e);
+		e.preventDefault(); // look this up in google guys
+		submitAnnotation( returnFormContents('new-annotation-form') );
 	});
 
-	$('body').delegate('form#edit-annotation-form', 'submit', function(e) {
+	// Submitting an update of an annotation
+	$('body').delegate('form#update-annotation-form', 'submit', function(e) {
+		console.log(e);
 		e.preventDefault();
-		updateAnnotation();
+		updateAnnotation( $(this).data('id'), returnFormContents('update-annotation-form') );
+		debugger
 	});
 
+	// Deleting an annotation
 	$('body').delegate('button.btn-danger', 'click', function() {
-		deleteAnnotation($(this).data('id'));
+		deleteAnnotation( $(this).data('id') );
 	});
 
+	// Displaying the update form for a selected annotation
 	$('body').delegate('button.btn-primary', 'click', function() {
-		displayUpdateModal($(this).data('id'));
+		displayUpdateModal( $(this).data('id'), myAnnotationsArray );
+		
 	});
 
-	$('#edit-annotation-modal').on('hide.bs.modal', function(e) {
+	// Clears the BootStrap modal on hide, otherwise old info 
+	// will appear on the next opening of the modal
+	$('#update-annotation-modal').on('hide.bs.modal', function() {
 	  $('.modal-body').html('');
 	});
-
 
 
 // FUNCTION CALLS ON LOAD
 
 	createChart();
 	createAnnotationsTable();
+
+
+});
+
+
+
+
+
+
+
+
+
+
 
 };

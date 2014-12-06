@@ -15,10 +15,10 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <legend>Annotation Submitter</legend>
+        <legend>Annotation Manager</legend>
         <div class="col-md-6">
-          <h1>Submit New Annotation</h1>
-          <form id="annotation-form" class="form-responsive">
+          <h2>Submit New Annotation</h2>
+          <form id="new-annotation-form" class="form-responsive">
             <fieldset>
               <!-- Text input-->
               <div class="form-group">
@@ -55,7 +55,7 @@
           </form>
         </div>
         <div class="col-md-6">
-          <h1>My Annotations</h1>
+          <h2>My Annotations</h2>
           <table class="table">
             <thead>
               <tr class="">
@@ -68,20 +68,18 @@
 
             </tbody>
           </table>
-          <ul id="annotations-list" class="list-unstyled">
-          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Modal -->
-  <div class="modal fade" id="edit-annotation-modal" tabindex="-1" role="dialog" aria-labelledby="edit-annotation-modal-label" aria-hidden="true">
+  <div class="modal fade" id="update-annotation-modal" tabindex="-1" role="dialog" aria-labelledby="update-annotation-modal-label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="edit-annotation-modal-label">Edit Annotation</h4>
+          <h4 class="modal-title" id="update-annotation-modal-label">Edit Annotation</h4>
         </div>
         <div class="modal-body">
 
