@@ -76,6 +76,8 @@ $(document).ready(function(){
 				    });
 				});
 
+				createAnnotationsTable();
+
 			},
 		  dataType: 'JSON'
 		});
@@ -90,6 +92,7 @@ $(document).ready(function(){
 		  success: function(response){
 		  	myAnnotationsArray = response;
 		  	console.log(response);
+		  	$('#annotations-list').html('');
 		  	for(index in response){
 		  		var html = '\
 	            <tr class="annotation-item">\
@@ -143,7 +146,8 @@ $(document).ready(function(){
 		  url: 'http://ga-wdi-api.meteor.com/api/posts/',
 		  success: function(response){
 		  	console.log(response);
-		  	location.reload(true);
+		  	// location.reload(true);
+		  	createChart();
 		  },
 		  data: submission,
 		  dataType: 'JSON'
@@ -161,7 +165,8 @@ $(document).ready(function(){
 		  url: 'http://ga-wdi-api.meteor.com/api/posts/' + annotationId,
 		  success: function(response){
 		  	console.log(response);
-				location.reload(true);
+				// location.reload(true);
+				createChart();
 		  }
 		});
 
@@ -241,8 +246,9 @@ $(document).ready(function(){
 		  url: 'http://ga-wdi-api.meteor.com/api/posts/' + id,
 		  success: function(response){
 		  	console.log(response);
-		  	location.reload(true);
-		  	debugger
+		  	// location.reload(true);
+		  	createChart();
+		  	
 		  },
 		  error: function(response){
 		  	console.log(response);
@@ -291,7 +297,7 @@ $(document).ready(function(){
 // FUNCTION CALLS ON LOAD
 
 	createChart();
-	createAnnotationsTable();
+	// createAnnotationsTable();
 
 
 });
