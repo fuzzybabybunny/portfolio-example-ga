@@ -145,6 +145,7 @@ $(document).ready(function(){
 		  type: 'POST',
 		  url: 'http://ga-wdi-api.meteor.com/api/posts/',
 		  success: function(response){
+		  	$('form#new-annotation-form').trigger('reset');
 		  	console.log(response);
 		  	// location.reload(true);
 		  	createChart();
