@@ -1,11 +1,5 @@
 Template.highchartsAnnotation.rendered = function() {
 
-
-
-
-
-$(document).ready(function(){
-
 // FILE VARIABLES
 
 	// Created when createAnnotationsTable() fetches all of my annotations from the server
@@ -14,16 +8,24 @@ $(document).ready(function(){
 // FUNCTIONS
 
 	var createChart = function(){
-
 		$.ajax({
-		  type: 'GET',
-		  url: 'http://ga-wdi-api.meteor.com/api/posts/search/victor',
-		  success: function(response){
-		  	console.log(response);
-				$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function(data) {
+			type: 'GET',
+			url: 'http://www.quandl.com/api/v1/datasets/EIA/IES_2_2_2_CHN.json?column=1',
+			dataType: 'JSON',
+			success: function(response){
+				var data = [];
+				for (index in response.data){
+					data[index] = [];
+					data[index][0] = moment(response[response.data[index][0]]).valueOf();
+					data[index][1] = response.data[index][1];
+				};
+				debugger
 
-				    // Create the chart
-				    // console.log(data);
+				$.ajax({
+				  type: 'GET',
+				  url: 'http://ga-wdi-api.meteor.com/api/posts/search/victor',
+				  success: function(response){
+				  	myAnnotationsArray = response;
 				    $('#chart').highcharts('StockChart', {
 
 				    		chart: {
@@ -44,6 +46,20 @@ $(document).ready(function(){
 				            }
 				        },
 
+				        xAxis: {
+				        	type: 'datetime',
+				        	dateTimeLabelFormats: {
+										millisecond: '%H:%M:%S.%L',
+										second: '%H:%M:%S',
+										minute: '%H:%M',
+										hour: '%H:%M',
+										day: '%e. %b',
+										week: '%e. %b',
+										month: '%b \'%y',
+										year: '%Y'
+									}
+				        },
+
 				        plotOptions: {
 				        	flags: {
 						        style: {
@@ -61,23 +77,14 @@ $(document).ready(function(){
 				            tooltip: {
 				                valueDecimals: 4
 				            }
-				        }, {
-				            type: 'flags',
-				            name: 'Flags on series',
-				            data: response,
-				            onSeries: 'dataseries',
-				            shape: 'squarepin'
-				        }, {
-				            type: 'flags',
-				            name: 'Flags on axis',
-				            data: response,
-				            shape: 'squarepin'
 				        }]
 				    });
-				});
+			
 
-			},
-		  dataType: 'JSON'
+				  },
+				  dataType: 'JSON'
+				});
+			}
 		});
 
 	};
@@ -167,7 +174,7 @@ $(document).ready(function(){
 
 	};
 
-	var displayUpdateModal = function(id, annotationsArray){
+	var showUpdateModal = function(id, annotationsArray){
 
 		var annotationId = id;
 		for(index in annotationsArray){
@@ -242,7 +249,7 @@ $(document).ready(function(){
 		  success: function(response){
 		  	console.log(response);
 		  	location.reload(true);
-		  	debugger
+		  	
 		  },
 		  error: function(response){
 		  	console.log(response);
@@ -277,7 +284,7 @@ $(document).ready(function(){
 
 	// Displaying the update form for a selected annotation
 	$('body').delegate('button.btn-primary', 'click', function() {
-		displayUpdateModal( $(this).data('id'), myAnnotationsArray );
+		showUpdateModal( $(this).data('id'), myAnnotationsArray );
 		
 	});
 
@@ -291,19 +298,7 @@ $(document).ready(function(){
 // FUNCTION CALLS ON LOAD
 
 	createChart();
-	createAnnotationsTable();
-
-
-});
-
-
-
-
-
-
-
-
-
+	// createAnnotationsTable();
 
 
 };
