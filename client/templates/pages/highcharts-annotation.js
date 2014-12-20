@@ -13,12 +13,13 @@ $(document).ready(function(){
 
 // FUNCTIONS
 
-	var createChart = function(){
+	var createChartAndAnnotationsTable = function(){
 
 		$.ajax({
 		  type: 'GET',
 		  url: 'http://ga-wdi-api.meteor.com/api/posts/search/victor',
 		  success: function(response){
+		  	var myAnnotations = response;
 		  	console.log(response);
 				$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function(data) {
 
@@ -64,19 +65,21 @@ $(document).ready(function(){
 				        }, {
 				            type: 'flags',
 				            name: 'Flags on series',
-				            data: response,
+				            data: myAnnotations,
 				            onSeries: 'dataseries',
 				            shape: 'squarepin'
 				        }, {
 				            type: 'flags',
 				            name: 'Flags on axis',
-				            data: response,
+				            data: myAnnotations,
 				            shape: 'squarepin'
 				        }]
 				    });
 				});
 
 				createAnnotationsTable();
+
+				// we've got both the Quandl data and the annotations data
 
 			},
 		  dataType: 'JSON'
@@ -148,7 +151,7 @@ $(document).ready(function(){
 		  	$('form#new-annotation-form').trigger('reset');
 		  	console.log(response);
 		  	// location.reload(true);
-		  	createChart();
+		  	createChartAndAnnotationsTable();
 		  },
 		  data: submission,
 		  dataType: 'JSON'
@@ -167,7 +170,7 @@ $(document).ready(function(){
 		  success: function(response){
 		  	console.log(response);
 				// location.reload(true);
-				createChart();
+				createChartAndAnnotationsTable();
 		  }
 		});
 
@@ -248,7 +251,7 @@ $(document).ready(function(){
 		  success: function(response){
 		  	console.log(response);
 		  	// location.reload(true);
-		  	createChart();
+		  	createChartAndAnnotationsTable();
 		  	
 		  },
 		  error: function(response){
@@ -263,9 +266,9 @@ $(document).ready(function(){
 // EVENTS
 
 	// Submitting a new annotation
-	$('form#new-annotation-form').submit(function(e) {
-		console.log(e);
-		e.preventDefault(); // look this up in google guys
+	$('form#new-annotation-form').submit(function(event) {
+		console.log(event);
+		event.preventDefault(); // look this up in google guys
 		submitAnnotation( returnFormContents('new-annotation-form') );
 	});
 
@@ -274,13 +277,21 @@ $(document).ready(function(){
 		console.log(e);
 		e.preventDefault();
 		updateAnnotation( $(this).data('id'), returnFormContents('update-annotation-form') );
-		debugger
 	});
 
 	// Deleting an annotation
 	$('body').delegate('button.btn-danger', 'click', function() {
+		console.log("This is this: ", this);
+		console.log("This is the value of $(this).data('id'): ", $(this).data('id'));
 		deleteAnnotation( $(this).data('id') );
 	});
+
+	// Deleting an annotation ONLY if this DOM node is available on first load
+	$('button.btn-danger').click(function() {
+		console.log('clicked!!!!!!');
+		deleteAnnotation( $(this).data('id') );
+	});
+
 
 	// Displaying the update form for a selected annotation
 	$('body').delegate('button.btn-primary', 'click', function() {
@@ -297,7 +308,7 @@ $(document).ready(function(){
 
 // FUNCTION CALLS ON LOAD
 
-	createChart();
+	createChartAndAnnotationsTable();
 	// createAnnotationsTable();
 
 

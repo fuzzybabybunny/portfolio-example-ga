@@ -1,8 +1,23 @@
 <template name='contact'>
-	<form role='form'>
+<!-- 	<form role='form'>
 	<input name='email'>
 	<input name='title'>
 	<input name='content'>
 	<input type="submit" value="Submit">Submit
-	</form>
+	</form> -->
+
+Manual Form Below
+<form accept-charset="UTF-8" action="/#" class="simple_form new_post" id="new_post" method="post" novalidate="novalidate" _lpchecked="1">
+	<div style="display:none">
+		<input name="utf8" type="hidden" value="✓">
+		<input name="authenticity_token" type="hidden" value="a9RkActf1WwukyhcfdOpHxwHsFb99CM6jaC/4yRm1VU=">
+	</div>
+  <label class="string required control-label" for="post_title">
+  	<abbr title="required">*</abbr> Title</label>
+  
+  <input id="post_title" name="post[title]" type="text">
+  <label class="url optional control-label" for="post_url">Url</label>
+  <input id="post_url" name="post[url]" type="text">
+  <input name="commit" type="submit" value="Submit">
+</form>
 </template>
